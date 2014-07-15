@@ -16,13 +16,13 @@ WIN: CDPH agreed to update the data behind the web application as
 needed. There are frequent and timely updates as events are confirmed
 or cancelled. We made this process as easy as possible.
 
-WIN: CDPH and I are using this Back To School web app as a technical
-and logistical test run for the upcoming Flu Shot Finder. Not only
-will much of the code essentially be the same, but also the data
+WIN: CDPH and I used this Back To School web app as a technical
+and logistical test run for the Flu Shot Finder. Not only
+is much of the code essentially the same, but also the data
 format will match. Data is formatted according to a national effort to
-standardize these data, lead by Mark Headd, the CTO for the City of
-Philadelphia. This also gives CDPH a feel for what it will take to
-keep this year's Flu Shot Finder application information up to date.
+standardize these data, lead by Mark Headd, the former CTO for the City of
+Philadelphia. This also gave CDPH a feel for what it took to
+keep the Flu Shot Finder application information up to date.
 
 The draft standards document is here:
 https://docs.google.com/a/kompare.us/document/d/1ikTyX1xWpw86u-xuokEJAGwe-tyKAeYl3qFLw0poAAE

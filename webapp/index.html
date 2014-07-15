@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset=utf-8>
+	<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1 minimum-scale=1">
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1" />
+	<link rel="icon" href="img/favicon.ico" type=”image/x-icon”>
+	<link rel="apple-touch-icon-precomposed" href="img/icon.png" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link href="css/bootstrap.min.css" rel=stylesheet media=screen>
+	<link href="css/bootstrap-responsive.min.css" rel=stylesheet>
+	<style>
+		@import "css/jquery.icalendar.css";
+		body {padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px}
+		body,#the-map{background-color:#333}
+		#div-footer a{color:#5cf}
+		#before-map-fluid{background-color:#fff}
+		#help p{color:#ddd}
+		#help b{color:#fff}
+		#map img{max-width:none}
+		.padded{padding-left:10px;padding-right:10px}
+		.center{text-align:center}
+		.marginb2{margin-bottom:2em}
+		.margint1{margin-top:1em}
+		.margin2{margin-bottom:2em;margin-top:2em}
+		@media only screen and (min-width:768px) {
+			#help,#intro-text{padding-left:30px;padding-right:30px;font-size:112%;line-height:150%}
+		}
+		@media only screen and (max-width:767px) {
+			#help{padding-left:15px;padding-right:15px;}
+		}
+		.lead{margin-bottom:0.375em}
+	</style>
+	<title>Back To School Immunizations</title>
+</head>
+<body>
+	<div id=before-map-fluid class=row-fluid>
+		<div id=before-map class=span12>
+			<img src="img/healthychicago.jpg" alt="Healthy Chicago: Chicago Department of Public Health" style="display:block;margin-left:auto;margin-right:auto"/>
+			<noscript><p class=center><strong class="label label-important">We're sorry. You'll need to turn on Javascript in your browser to use this web site.</strong></p></noscript>
+			<div id=start>
+				<div class="span12">
+					<p class="center padded marginb2">Find a free and convenient Back To School immunization event for your children.</p>
+				</div>
+				<div id=grp-address class="control-group center padded margint2">
+					<h4>Where are you?<span id=findme></span></h4>
+					<div class=controls>
+						<input id=address-input class=span10 type=text placeholder="Enter an address" />
+					</div>
+				</div>
+				<div id=grp-start class="control-group center padded">
+					<button id=address-search class="btn btn-large btn-danger">Search</button>
+					<button id=start-learn class="btn btn-large">Learn More</button>
+				</div>
+			</div>
+			<div id=results class="span10 offset1 center">
+			</div>
+		</div>
+	</div>
+	<div id=div-map class=row-fluid>
+		<div id=the-map class=span12>
+			<div id=map-width style="display:inline-block; position:relative; width:100%;">
+				<div id=map-ratio style="margin-top:300px;">
+					<div id=map style="position:absolute; top:0; bottom:0; left:0; right:0;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id=div-footer class=row-fluid>
+		<footer class=padded
+			style="background-color: #333; color: white; overflow: hidden">
+			<div class="span4 margint1">
+				<p>
+					<a href="http://www.cityofchicago.org/city/en/depts/cdph.html"
+						target="_blank">Chicago Department of Public Health</a>
+				</p>
+				<p>
+					<a href="https://twitter.com/share" class="twitter-share-button"
+						data-text="Find free Back to School immunizations for your children in Chicago."
+						data-url="http://backtoschoolimmunization.org"
+						data-related="tomkompare:Volunteer Civic Developer,ChiPublicHealth:Offical Account of CDPH,opengovchicago:A meetup group for government and community members"
+						data-lang="en" data-size="small" data-count="none">Tweet</a>
+					&nbsp;&nbsp;<span class="g-plusone" data-size="medium"
+						data-annotation="none"></span>
+				</p>
+			</div>
+			<div class="span8 margint1">
+				<p class=pull-right>
+					<small>This was not developed by the Chicago Department of
+						Public Health (CDPH) and CDPH makes no representations as to the
+						accuracy of the information provided by this map application.
+						Built by <a href="http://about.me/tomkompare" target="_blank">Tom
+							Kompare</a>. This site is hosted by <a href="http://www.smartchicagocollaborative.org/" target="_blank">Smart Chicago</a>.
+					</small>
+				</p>
+			</div>
+			<div class=span11>
+				<hr>
+				<div id=learn>
+					<a id=learn-start>Back</a>
+					<p class="margint1 lead">More Information</p>
+					<p>Immunization events are free for ages 6 months to 18 years of age. No appointment is needed. Please bring your child's shot record with you. For the safety of your child it is important for the immunization nurse to know what shots your child has already received and when they were given.</p>
+					<p class="margint1 lead">About the Author</p>
+					<p>
+						<a href="http://about.me/tomkompare" target="_blank">Tom
+							Kompare</a> learned about this program while emailing with a person
+						who works at Chicago Department of Public Health. He thought he
+						should make a web application to help parents get their children
+						immunized.
+					</p>
+					<p>
+						Tom believes in sharing. The code behind this
+						site is freely available, under <a
+							href="https://github.com/tkompare/back2schoolshots/blob/master/LICENSE.TXT"
+							target="_blank">The MIT license</a>, to anyone who may want to
+						implement this in their city. <a
+							href="https://github.com/tkompare/back2schoolshots/"
+							target="_blank">You may find the code here</a>. If you or your 
+							city needs help getting it up and running, <a
+							href="http://about.me/tomkompare" target="_blank">feel free
+							to contact Tom</a>.
+					</p>
+					<p class="margint1">Disclaimer</p>
+					<p>
+						<small>We make no representations or warranties regarding
+							the accuracy or completeness of any content or the product. We
+							disclaim all warranties in connection with the content and the
+							product, and will not be liable for any damage or loss resulting
+							from your use of the content or the product.</small>
+					</p>
+					<a id=learn-end>Back</a><br>
+					<br>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<!--  If the CDN is broken, get the jQuery library from our server. -->
+	<script>
+		window.jQuery
+			|| document.write('<script src="js/jquery-1.9.0.min.js"><\/script>')
+	</script>
+	<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAjvSzRjKbN4UCpTSXRo7wkOCAAYb2GXIo&libraries=geometry&sensor=true"></script>
+<!--
+	The .js files enclosed in this comment are concatenate & minified into a single file
+	(main.min.js) in order to reduce the number of file requests made to the server.
+	<script src="js/bootstrap.js"></script>
+	<script src="js/modernizr.js"></script>
+	<script src="js/tkmap.4.0.0.js"></script>
+	<script src="js/infobox.js"></script>
+	<script src="js/date.js"></script>
+	<script src="js/jquery-migrate-1.2.1.js"></script>
+	<script src="js/jquery.icalendar.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/share.js"></script>
+-->
+	<script src="js/main.min.js"></script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(
+		['_setAccount', 'UA-42855450-1']);
+		_gaq.push(
+		['_trackPageview']);
+		(function()
+		{
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src =
+				('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
+					+ '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>	
+</body>
+</html>

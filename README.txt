@@ -1,7 +1,7 @@
 back2schoolshots
 ================
 
-While on the path of redesigning last year's Flu Shot Finder for this
+In 2013, while on the path of redesigning last year's Flu Shot Finder for this
 upcoming season, I stumbled into a conversation about the Chicago
 Department of Public Health's (CDPH) "Back To School" immunization
 campaign. These events are free for anyone 6 months to 18 years old.

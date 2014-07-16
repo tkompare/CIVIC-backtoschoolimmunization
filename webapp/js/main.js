@@ -68,7 +68,8 @@
 					// Create the Google LatLng object
 					this.ImmunizeEvents[i].latlng = new google.maps.LatLng(this.ImmunizeEvents[i].data.latitude,this.ImmunizeEvents[i].data.longitude);
 					// Create the markers for each school
-					if(new Date.parse(this.ImmunizeEvents[i].data.end_date+' '+this.ImmunizeEvents[i].data.end_time).compareTo(this.now) > 0)
+                    var eventTime = new Date.parse(this.ImmunizeEvents[i].data.end_date+' '+this.ImmunizeEvents[i].data.end_time);
+					if(eventTime >= this.now)
 					{
 						this.ImmunizeEvents[i].marker = new google.maps.Marker({
 							position: this.ImmunizeEvents[i].latlng,
@@ -407,7 +408,8 @@
 												endtime = '0:00';
 											}
 										}
-										if(new Date.parse(Default.ImmunizeEvents[i].data.end_date+' '+Default.ImmunizeEvents[i].data.end_time).compareTo(Default.now) < 0)
+                                        var endDateTime = new Date.parse(Default.ImmunizeEvents[i].data.end_date+' '+Default.ImmunizeEvents[i].data.end_time);
+										if(Default.now > endDateTime)
 										{
 											resultHTML += '<div class="accordion-heading" style="background-color:#ddd;"><a id="accordion-toggle-'+i+'" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-'+i+'" style="color:#888">';
 											resultHTML += '<span style="text-decoration:line-through">'+Default.ImmunizeEvents[i].data.facility_name+' - '+Math.round(Default.ImmunizeEvents[i].getDistance(Default.AddressMarker.getPosition())/1607*100)/100+' miles</span> - Past Event';
@@ -439,7 +441,7 @@
 										resultHTML += phonetext+'<br>';
 										beginDate[i] = new Date(Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("yyyy"), Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("MM")-1, Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("dd"), Date.parse(begintime).toString("HH"), Date.parse(begintime).toString("mm"), 00);
 										endDate[i] = new Date(Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("yyyy"), Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("MM")-1, Date.parse(Default.ImmunizeEvents[i].data.begin_date).toString("dd"), Date.parse(endtime).toString("HH"), Date.parse(endtime).toString("mm"), 00);
-										if(new Date.parse(Default.ImmunizeEvents[i].data.end_date+' '+Default.ImmunizeEvents[i].data.end_time).compareTo(Default.now) > 0)
+										if(Default.now <= endDateTime)
 										{
 											resultHTML += '<a id="Directions to '+Default.ImmunizeEvents[i].data.facility_name+'" class="getdirections" href="http://www.google.com/maps?saddr='+$('#address-input').val()+' Chicago, IL&daddr='+Default.ImmunizeEvents[i].data.street1+' '+Default.ImmunizeEvents[i].data.city+', '+Default.ImmunizeEvents[i].data.state+' '+Default.ImmunizeEvents[i].data.postal_code+'" target="_blank" style="color:#f22">Get Directions</a> |<span id="ical-'+[i]+'" class="ical"></span>';
 										}
@@ -459,7 +461,8 @@
 								$('#results').html(resultHTML);
 								for(var i in Default.ImmunizeEvents)
 								{
-									if(new Date.parse(Default.ImmunizeEvents[i].data.end_date+' '+Default.ImmunizeEvents[i].data.end_time).compareTo(Default.now) > 0)
+                                    var endDateTime = new Date.parse(Default.ImmunizeEvents[i].data.end_date+' '+Default.ImmunizeEvents[i].data.end_time);
+									if(Default.now <= endDateTime)
 									{
 										$('#ical-'+[i]).icalendar({
 											start: beginDate[i],

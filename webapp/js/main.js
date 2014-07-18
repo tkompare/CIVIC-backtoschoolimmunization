@@ -9,7 +9,7 @@
 		// Default values object
 		var Default = {
 			cal_title:'Back to School Immunization Event',
-	    cal_summary:'Back to School Immunization Event',
+	        cal_summary:'Back to School Immunization Event',
 			// The map's DOM object ID
 			domid:'map',
 			// Start center latutude of the Google map
@@ -93,7 +93,8 @@
 					this.ImmunizeEvents[i].infoboxtext = '<div class="infoBox" style="border:2px solid rgb(0,0,128); margin-top:8px; background:#aadffa; padding:5px; font-size:90%;">'+
 					this.ImmunizeEvents[i].data.facility_name+'<br>'+
 					this.ImmunizeEvents[i].data.street1+'<br>'+this.ImmunizeEvents[i].data.city+', '+this.ImmunizeEvents[i].data.state+' '+this.ImmunizeEvents[i].data.postal_code+
-					'<br>'+Date.parse(this.ImmunizeEvents[i].data.begin_date).toString("dddd, MMMM dd")+
+					'<br>'+Date.parse(this.ImmunizeEvents[i].data.begin_date).toString("dddd, MMMM dd")+'<br>'+
+                    '<a id="Directions to '+this.ImmunizeEvents[i].data.facility_name+'" class="getdirections" href="http://www.google.com/maps?daddr='+this.ImmunizeEvents[i].data.street1+' '+this.ImmunizeEvents[i].data.city+', '+this.ImmunizeEvents[i].data.state+' '+this.ImmunizeEvents[i].data.postal_code+'" target="_blank" style="color:#f22">Get Directions</a><br>'+
 					'</div>';
 					var options = this.infoboxoptions;
 					options.content = this.ImmunizeEvents[i].infoboxtext;
@@ -243,8 +244,11 @@
 		$('#address,#results,#noresults').hide();
 		Map.initMap();
 		Map.setPanZoom(false);
-		
-		// Get the Back To School immunization locations
+
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(Map.Map);
+
+        // Get the Back To School immunization locations
 		var ImmunizeEventsFT = new FusionTable(Default.fturl,Default.immunizeeventquery,Default.googlemapsapikey);
 		$.getJSON(ImmunizeEventsFT.url, {
 			dataType: 'jsonp',
@@ -287,7 +291,7 @@
 			_gaq.push(['_trackEvent', 'Phone Call Attempt', 'Click', $(this).attr('id')]);
 		});
 		
-	// Record a request for directions
+	    // Record a request for directions
 		$('body').on('click','.getdirections',function(){
 			_gaq.push(['_trackEvent', 'Get Directions', 'Click', $(this).attr('id')]);
 		});

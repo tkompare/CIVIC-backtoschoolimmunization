@@ -125,7 +125,13 @@ var TkMap = (function(){
 								featureType : "road",
 								elementType : "labels",
 								stylers: [{ visibility: "on" }]
-							}
+							},
+                            {
+                                featureType : "transit.station.rail",
+                                elementType : "labels",
+                                stylers: [{ visibility: "on" }]
+                            }
+
 						);
 					}
 					else if (StylesArray[i] === 'grey')
@@ -134,8 +140,25 @@ var TkMap = (function(){
 						MapOptions.styles.push
 						(
 							{
+                                featureType: "administrative",
 								stylers: [{ saturation: -87 }]
 							},
+                            {
+                                featureType: "landscape",
+                                stylers: [{ saturation: -87 }]
+                            },
+                            {
+                                featureType: "poi",
+                                stylers: [{ saturation: -87 }]
+                            },
+                            {
+                                featureType: "road",
+                                stylers: [{ saturation: -87 }]
+                            },
+                            {
+                                featureType: "water",
+                                stylers: [{ saturation: -87 }]
+                            },
 							{
 								featureType: "road.arterial",
 								elementType: "geometry",
@@ -144,7 +167,11 @@ var TkMap = (function(){
 							{
 								featureType: "water",
 								stylers: [{ lightness: -20 }]
-							}
+							},
+                            {
+                                featureType: "transit.station.rail",
+                                stylers: [{ saturation: 85 }]
+                            }
 						);
 					}
 				}

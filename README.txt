@@ -41,7 +41,12 @@ environment where partnership with open where initiatives like this
 are encouraged.
 
 Implementation Hints:
+You probably want someone who knows Javascript fairly well. It's not
+impossible code, but its easier with someone who is confident in JS.
 Most of the default set-up is in '/js/main.js' at the top in a JS "object"
 called 'Default'. Also, you should totally swap out all of the graphics.
 I don't think the City of Chicago would like you using it without
-permission.
+permission. I mean seriously, do you want to get on Rahm's bad side and
+have him send you a dead fish among other things? I know the City's
+Corporation Counsel personally. Believe me, you don't want to get on his
+bad side either.

@@ -1,5 +1,5 @@
-back2schoolshots
-================
+Back to School Immunizations
+============================
 
 In 2013, while on the path of redesigning last year's Flu Shot Finder for this
 upcoming season, I stumbled into a conversation about the Chicago
